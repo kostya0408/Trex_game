@@ -1,5 +1,8 @@
 #include "HelloWorldScene.h"
 #include"Sun.h"
+#include"Ground.h"
+#include"Bird.h"
+#include"Cactus.h"
 
 USING_NS_CC;
 
@@ -10,8 +13,20 @@ Scene* Trex::createScene()
 
     scene->getPhysicsWorld()->setGravity(Vect(0, -200.0));
     scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+
     auto Sonce = Sun::create();
     scene->addChild(Sonce, 2);
+
+    auto Zemlya = Ground::create();
+    scene->addChild(Zemlya, 3);
+
+    auto Cacctus = Cactus::create();
+    scene->addChild(Cacctus, 3);
+
+    auto Ptah = Bird::create();
+    scene->addChild(Ptah, 3);
+
+  
 
     auto layer = Trex::create();
     layer->SetPhysicsWorld(scene->getPhysicsWorld());
@@ -51,30 +66,30 @@ bool Trex::init()
     /*auto background = LayerColor::create(Color4B(173, 216, 230, 255));*/
   /*  this->addChild(background, -1);*/
 
-     ground = Sprite::create("ground.png");
+    /* ground = Sprite::create("ground.png");
     ground->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 3));
      groundBody = PhysicsBody::createBox(ground->getContentSize(), PhysicsMaterial(0.0f, 0.0f, 0.0f));
     groundBody->setDynamic(false);
     ground->setPhysicsBody(groundBody);
 
-    this->addChild(ground);
+    this->addChild(ground);*/
 
-    cactus_1 = Sprite::create("cactus1.png");
-    cactus_1->setPosition(Vec2(origin.x + visibleSize.width / 2 + 200, origin.y + visibleSize.height / 3 + 50));
-    cactus_1Body = PhysicsBody::createBox(Size(45, 150), PhysicsMaterial(0.0f, 0.0f, 0.0f)); //густина, пружність, тертя
-    cactus_1Body->setDynamic(false);
-    cactus_1Body->setCollisionBitmask(1);
-    cactus_1Body->setCategoryBitmask(2);
-    cactus_1Body->setContactTestBitmask(1);
-    cactus_1->setPhysicsBody(cactus_1Body);
-    cactus_1->setScale(0.7f);
+    //cactus_1 = Sprite::create("cactus1.png");
+    //cactus_1->setPosition(Vec2(origin.x + visibleSize.width / 2 + 200, origin.y + visibleSize.height / 3 + 50));
+    //cactus_1Body = PhysicsBody::createBox(Size(45, 150), PhysicsMaterial(0.0f, 0.0f, 0.0f)); //густина, пружність, тертя
+    //cactus_1Body->setDynamic(false);
+    //cactus_1Body->setCollisionBitmask(1);
+    //cactus_1Body->setCategoryBitmask(2);
+    //cactus_1Body->setContactTestBitmask(1);
+    //cactus_1->setPhysicsBody(cactus_1Body);
+    //cactus_1->setScale(0.7f);
 
 
-    this->addChild(cactus_1);
+    /*this->addChild(cactus_1);*/
 
      rex = Sprite::create("dino.png");
     rex->setPosition(Vec2(origin.x + visibleSize.width / 2 - 300, origin.y + visibleSize.height / 3 + 50));
-     rexBody = PhysicsBody::createBox(Size(70, 75), PhysicsMaterial(50.0f, 0.0f, 0.0f));
+     rexBody = PhysicsBody::createBox(Size(80, 85), PhysicsMaterial(50.0f, 0.0f, 0.0f));
      rexBody->setCollisionBitmask(6);
      rexBody->setCategoryBitmask(1);
      rexBody->setContactTestBitmask(6);
@@ -83,7 +98,7 @@ bool Trex::init()
 
     this->addChild(rex);
 
-    bird = Sprite::create("ptera.png");
+   /* bird = Sprite::create("ptera.png");
     bird->setPosition(Vec2(origin.x + visibleSize.width / 2 - 300, origin.y + visibleSize.height / 3 + 250));
     birdBody = PhysicsBody::createBox(Size(50, 50), PhysicsMaterial(0.0f, 0.0f, 0.0f));
     birdBody->setCollisionBitmask(1);
@@ -92,7 +107,7 @@ bool Trex::init()
     birdBody->setDynamic(false);
     bird->setPhysicsBody(birdBody);
 
-    this->addChild(bird);
+    this->addChild(bird);*/
 
     
 
